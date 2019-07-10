@@ -1,13 +1,15 @@
-import React from "react";
-
+import React, { Component } from "react";
+import M from "materialize-css";
 import "./App.css";
+import Content from "./Components/Layouts/content";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello</h1>
-    </div>
-  );
+class App extends Component {
+  componentDidMount() {
+    M.AutoInit();
+  }
+  render() {
+    return <Content />;
+  }
 }
 
 export default App;
