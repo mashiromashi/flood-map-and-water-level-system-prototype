@@ -6,7 +6,16 @@ class DetailsPage extends Component {
   state = {};
   render() {
     return (
-      <div className="container">
+      <div
+        className="container"
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          height: "600px",
+          // justifyContent: "center",
+          alignContent: "space-around"
+        }}
+      >
         <CurrentRainLevel />
         <CurrentWaterLevel />
       </div>

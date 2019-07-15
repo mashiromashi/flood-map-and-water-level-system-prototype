@@ -7,8 +7,17 @@ class CurrentWaterLevel extends Component {
   }
   render() {
     return (
-      <div style={{ float: "right" }} className="col s12 m6 l4">
-        <h6>Curent Water Level </h6>
+      <div
+        style={{ paddingTop: "20px", paddingLeft: "10px", flexGrow: "2" }}
+        className="col s12 m6 l4"
+      >
+        <div className="input-field selected">
+          <select>
+            <option value="current">Current</option>
+            <option value="pastWeek">Past Week</option>
+            <option value="pastMonth">Past Month</option>
+          </select>
+        </div>
         <table className="striped">
           <thead>
             <tr>

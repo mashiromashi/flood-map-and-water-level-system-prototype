@@ -8,15 +8,15 @@ class Map extends Component {
   render() {
     return (
       <div>
-        <div className="col s12 m6 l4 left-align">
+        <div className="col s12">
           <img
             src="/img/MAP_3_a.jpg"
             alt=""
             style={{
-              maxWidth: "70%",
+              maxWidth: "80%",
               height: "auto",
               paddingTop: "50px",
-              float: "left"
+              flexGrow: "2"
             }}
           />
         </div>

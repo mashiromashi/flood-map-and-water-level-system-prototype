@@ -4,8 +4,8 @@ class MapTables extends Component {
   state = {};
   render() {
     return (
-      <div style={{ float: "right" }}>
-        <div className="col s12 m6 l4 center-align">
+      <div className="col s12 center-align">
+        <div className="col s12 m6 l4">
           <table className="centered responsive-table">
             <thead>
               <tr>

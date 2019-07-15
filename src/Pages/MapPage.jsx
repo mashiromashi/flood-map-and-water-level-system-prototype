@@ -9,11 +9,11 @@ class MapPage extends Component {
   }
   render() {
     return (
-      <div className="container">
-        <div style={{ paddingTop: "50px" }}>
+      <div className="container" style={{ display: "flex" }}>
+        <div style={{ paddingTop: "50px", flexGrow: "2" }}>
           <Map />
         </div>
-        <div>
+        <div style={{ paddingTop: "80px", flexGrow: "4" }}>
           <MapTables />
         </div>
       </div>
