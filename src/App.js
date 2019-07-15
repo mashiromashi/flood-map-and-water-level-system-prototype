@@ -3,6 +3,7 @@ import M from "materialize-css";
 import "./App.css";
 import Content from "./Components/Layouts/content";
 import { BrowserRouter } from "react-router-dom";
+import NavBar from "./Components/NavBar/NavBar";
 class App extends Component {
   componentDidMount() {
     M.AutoInit();
@@ -10,6 +11,9 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
+        <header>
+          <NavBar />
+        </header>
         <Content />
       </BrowserRouter>
     );

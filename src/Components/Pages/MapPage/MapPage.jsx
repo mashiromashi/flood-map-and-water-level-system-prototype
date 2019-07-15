@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Map from "./container/MapApi";
 
 class MapPage extends Component {
   constructor(props) {
@@ -6,7 +7,11 @@ class MapPage extends Component {
     this.state = {};
   }
   render() {
-    return <h1>hello world</h1>;
+    return (
+      <div className="container">
+        <Map />
+      </div>
+    );
   }
 }
 
