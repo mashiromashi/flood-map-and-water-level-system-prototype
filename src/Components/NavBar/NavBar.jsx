@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import NavBarList from "./navBarList/navBarList";
 
 class NavBar extends Component {
   state = {};
@@ -6,14 +7,7 @@ class NavBar extends Component {
     return (
       <nav className="blue">
         <div class="nav-wrapper">
-          <ul id="nav-mobile">
-            <li className="active">
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/details">Details</a>
-            </li>
-          </ul>
+          <NavBarList />
         </div>
       </nav>
     );

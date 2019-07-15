@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Map from "./container/MapApi";
+import Map from "../Container/mapApi/MapApi";
+import MapTables from "../Container/MapTables/MapTables";
 
 class MapPage extends Component {
   constructor(props) {
@@ -9,7 +10,12 @@ class MapPage extends Component {
   render() {
     return (
       <div className="container">
-        <Map />
+        <div style={{ paddingTop: "50px" }}>
+          <Map />
+        </div>
+        <div>
+          <MapTables />
+        </div>
       </div>
     );
   }

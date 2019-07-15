@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import MapPage from "../Pages/MapPage/MapPage";
-import DetailsPage from "../Pages/DetailPage/DetailsPage";
+import DetailsPage from "../Pages/DetailsPage";
+import MapPage from "../Pages/MapPage";
+
 class Content extends Component {
   render() {
     return (

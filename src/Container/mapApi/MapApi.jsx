@@ -12,7 +12,12 @@ class Map extends Component {
           <img
             src="/img/MAP_3_a.jpg"
             alt=""
-            style={{ maxWidth: "85%", height: "auto", paddingTop: "50px" }}
+            style={{
+              maxWidth: "70%",
+              height: "auto",
+              paddingTop: "50px",
+              float: "left"
+            }}
           />
         </div>
       </div>
