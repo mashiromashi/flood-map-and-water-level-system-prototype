@@ -12,8 +12,8 @@ class DetailsPage extends Component {
           display: "flex",
           flexWrap: "wrap",
           height: "600px",
-          // justifyContent: "center",
-          alignContent: "space-around"
+          alignContent: "space-around",
+          paddingTop: "40px"
         }}
       >
         <CurrentRainLevel />

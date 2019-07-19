@@ -6,12 +6,10 @@ import MapPage from "../Pages/MapPage";
 class Content extends Component {
   render() {
     return (
-      <div>
-        <Switch>
-          <Route exact path="/" component={MapPage} />
-          <Route path="/details" component={DetailsPage} />
-        </Switch>
-      </div>
+      <Switch>
+        <Route exact path="/" component={MapPage} />
+        <Route path="/details" component={DetailsPage} />
+      </Switch>
     );
   }
 }

@@ -1,50 +1,46 @@
 import React, { Component } from "react";
-import "materialize-css";
-import M from "materialize-css";
 
-class CurrentRainLevel extends Component {
-  state = {};
+class CurrentWaterLevel extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+  }
+
   render() {
     return (
       <div
-        style={{
-          paddingLeft: "10px",
-          paddingTop: "10px",
-          paddingRight: "10px",
-          flexGrow: "2"
-        }}
         className="col s12 m6 l4"
+        style={{ paddingLeft: "10px", flexGrow: "2" }}
       >
         <div className="input-field selected">
           <select>
             <option value="current">Current</option>
             <option value="pastWeek">Past Week</option>
             <option value="pastMonth">Past Month</option>
+            <option value="pastYear">Past Year</option>
+            <option value="pastAll">Past All</option>
           </select>
         </div>
-        <table className="striped" id="current">
+        <table className="striped waterTable">
           <thead>
             <tr>
-              <th>Rain Level</th>
+              <th>Water Level</th>
               <th>Indicator</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>It's Rising</td>
-              <td>I dont know how</td>
+              <td>It is also rising</td> <td>How ????????</td>
             </tr>
             <tr>
-              <td>It is also rising</td>
-              <td>How ????????</td>
+              <td>It is also rising</td> <td>How ????????</td>
             </tr>
             <tr>
-              <td>It is also rising</td>
-              <td>How ????????</td>
+              <td>It is also rising</td> <td>How ????????</td>
             </tr>
             <tr>
-              <td>It is also rising</td>
-              <td>How ????????</td>
+              <td>It is also rising</td> <td>How ????????</td>
             </tr>
           </tbody>
         </table>
@@ -53,4 +49,4 @@ class CurrentRainLevel extends Component {
   }
 }
 
-export default CurrentRainLevel;
+export default CurrentWaterLevel;
