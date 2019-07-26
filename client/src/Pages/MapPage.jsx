@@ -13,7 +13,7 @@ class MapPage extends Component {
         <div style={{ paddingTop: "50px", flexGrow: "2" }}>
           <Map />
         </div>
-        <div style={{ paddingTop: "80px", flexGrow: "4" }}>
+        <div style={{ paddingTop: "80px", paddingLeft: "50px", flexGrow: "4" }}>
           <MapTables />
         </div>
       </div>

@@ -4,17 +4,29 @@ class CurrentWaterLevel extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = { value: "current" };
+
+    this._handleSelectChange = this._handleSelectChange.bind(this);
+  }
+
+  _handleSelectChange(e) {
+    this.setState({ value: e.target.value });
+    console.log(e.target.value);
   }
 
   render() {
+    const { value } = this.state;
+
     return (
       <div
         className="col s12 m6 l4"
         style={{ paddingLeft: "10px", flexGrow: "2" }}
       >
         <div className="input-field selected">
-          <select>
+          <select value={value} onChange={this._handleSelectChange}>
+            <option value="" disabled>
+              Please Choose One
+            </option>
             <option value="current">Current</option>
             <option value="pastWeek">Past Week</option>
             <option value="pastMonth">Past Month</option>

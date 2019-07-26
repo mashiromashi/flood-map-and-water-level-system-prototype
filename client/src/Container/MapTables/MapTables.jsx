@@ -1,12 +1,15 @@
 import React, { Component } from "react";
-
+import "./MapTables.css";
 class MapTables extends Component {
   state = {};
   render() {
     return (
-      <div className="col s12 center-align">
+      <div className="col s12 m6 l6 center-align">
         <div className="col s12 m6 l4">
-          <table className="centered responsive-table">
+          <table
+            className="centered responsive-table"
+            style={{ width: "100%" }}
+          >
             <thead>
               <tr>
                 <th>Water Level</th>
@@ -19,16 +22,16 @@ class MapTables extends Component {
                 <td>something</td>
               </tr>
               <tr>
-                <td>okay</td>
-                <td>yeah</td>
+                <td>something something</td>
+                <td>somethin something</td>
               </tr>
               <tr>
-                <td>okay</td>
-                <td>yeah</td>
+                <td>something something</td>
+                <td>somethin something</td>
               </tr>
               <tr>
-                <td>okay</td>
-                <td>yeah</td>
+                <td>something something</td>
+                <td>somethin something</td>
               </tr>
             </tbody>
           </table>
@@ -53,6 +56,10 @@ class MapTables extends Component {
                 <td>Something here</td>
                 <td>I do not know </td>
               </tr>
+              <tr>
+                <td>Something here</td>
+                <td>I do not know </td>
+              </tr>{" "}
               <tr>
                 <td>Something here</td>
                 <td>I do not know </td>

@@ -10,13 +10,13 @@ class Map extends Component {
       <div>
         <div className="col s12">
           <img
+            className="responsive-img"
             src="/img/MAP_3_a.jpg"
             alt=""
             style={{
-              maxWidth: "80%",
-              height: "auto",
-              paddingTop: "50px",
-              flexGrow: "2"
+              // maxWidth: "100%",
+              // height: "auto",
+              paddingTop: "50px"
             }}
           />
         </div>
