@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import "./MapTables.css";
+
 class MapTables extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     return (
       <div className="col s12 m6 l6 center-align">
