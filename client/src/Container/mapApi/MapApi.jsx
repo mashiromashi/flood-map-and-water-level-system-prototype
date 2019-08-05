@@ -1,12 +1,20 @@
 import React from "react";
-import { GoogleMap, withScriptjs, withGoogleMap } from "react-google-maps";
+import {
+  GoogleMap,
+  withScriptjs,
+  withGoogleMap,
+  Marker
+} from "react-google-maps";
 
 function GMap() {
   return (
     <GoogleMap
       defaultZoom={14}
       defaultCenter={{ lat: 14.69872, lng: 121.12606 }}
-    />
+    >
+      <Marker key="batasan" position={{ lat: 14.679486, lng: 121.109826 }} />
+      <Marker key="sapang" position={{ lat: 14.692949, lng: 121.125996 }} />
+    </GoogleMap>
   );
 }
 

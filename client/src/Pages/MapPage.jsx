@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Map from "../Container/mapApi/MapApi";
-import MapTables from "../Container/MapTables/MapTables";
+// import MapTables from "../Container/MapTables/MapTables";
 
 class MapPage extends Component {
   constructor(props) {
