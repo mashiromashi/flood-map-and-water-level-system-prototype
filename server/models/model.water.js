@@ -1,16 +1,6 @@
-module.exports = (sequelize, Sequelize) => {
-  return (water = sequelize.define(
-    "water",
-    {
-      currentWaterLevel: {
-        type: Sequelize.INTEGER,
-        primaryKey: true
-      }
-    },
-    {
-      timestamps: true,
-      freezeTableName: true,
-      tableName: "water"
-    }
-  ));
-};
+import { Mongoose } from "mongoose";
+
+const waterModel = Mongoose.model("water", {
+  waterLevel: integer,
+  createdAt: { type: Date, default: Date.now }
+});
