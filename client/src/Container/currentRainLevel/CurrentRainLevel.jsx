@@ -1,22 +1,50 @@
 import React, { Component } from "react";
 import "materialize-css";
 import "./CurrentRainLevel.css";
+import apiAddress from "../../util/apiPath";
 
 class CurrentRainLevel extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "current" };
+    this.state = { value: "current", rainInfo: [] };
 
     this._handleSelectChange = this._handleSelectChange.bind(this);
+    this.apiFetch = this.apiFetch.bind(this);
   }
 
   _handleSelectChange(e) {
     this.setState({ value: e.target.value });
     console.log(e.target.value);
   }
-
+  apiFetch = () => {
+    fetch(`${apiAddress}/rain/getall`)
+      .then(res => {
+        if (res.ok) return res.json();
+      })
+      .then(data => {
+        let rain = [];
+        for (let i = 0; i < data.length; i++) {
+          rain.push({
+            _id: data[i]._id,
+            createdAt: data[i].createdAt,
+            laboSensor_level: data[
+              i
+            ].laboSensor_level.$numberDecimal.toString(),
+            batasanSensor_level: data[
+              i
+            ].batasanSensor_level.$numberDecimal.toString()
+          });
+        }
+        this.setState({
+          rainInfo: rain
+        });
+      });
+  };
+  componentDidMount() {
+    this.apiFetch();
+  }
   render() {
-    const { value } = this.state;
+    const { value, rainInfo } = this.state;
     return (
       <div
         className="col s12 m6 l4"
@@ -50,22 +78,13 @@ class CurrentRainLevel extends Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>30 in</td>
-              <td>10 in</td>
-            </tr>
-            <tr>
-              <td>30 in</td>
-              <td>10 in</td>
-            </tr>
-            <tr>
-              <td>30 in</td>
-              <td>10 in</td>
-            </tr>
-            <tr>
-              <td>30 in</td>
-              <td>10 in</td>
-            </tr>
+            {rainInfo.map(rain => (
+              <tr>
+                <td>{rain.laboSensor_level}</td>
+                <td>{rain.batasanSensor_level}</td>
+                <td>{rain.createdAt}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

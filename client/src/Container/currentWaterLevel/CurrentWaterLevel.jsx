@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import apiAddress from "../../util/apiPath";
-
+import "materialize-css";
 class CurrentWaterLevel extends Component {
   constructor(props) {
     super(props);
@@ -22,16 +22,32 @@ class CurrentWaterLevel extends Component {
         if (res.ok) return res.json();
       })
       .then(data => {
-        this.setState({ waterInfo: data });
-        //console.log(this.state.waterInfo);
+        let water = [];
+        for (let i = 0; i < data.length; i++) {
+          water.push({
+            _id: data[i]._id,
+            createdAt: data[i].createdAt,
+            laboSensor_level: data[
+              i
+            ].laboSensor_level.$numberDecimal.toString(),
+            batasanSensor_level: data[
+              i
+            ].batasanSensor_level.$numberDecimal.toString()
+          });
+        }
+        this.setState({ waterInfo: water });
+        console.log(this.state.waterInfo[0]);
+      })
+      .catch(error => {
+        console.log(error);
       });
   };
   componentDidMount() {
     this.apiFetch();
   }
+
   render() {
     const { value, waterInfo } = this.state;
-    console.log(waterInfo);
 
     return (
       <div
@@ -51,7 +67,7 @@ class CurrentWaterLevel extends Component {
             <option value="pastAll">Past All</option>
           </select>
         </div>
-        <table className="striped currentWaterTable">
+        <table>
           <thead>
             <tr>
               <th>Sapang Labo Sensor</th>
@@ -59,22 +75,13 @@ class CurrentWaterLevel extends Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>30in</td>
-              <td>30in</td>
-            </tr>
-            <tr>
-              <td>25 in</td>
-              <td>10in</td>
-            </tr>
-            <tr>
-              <td>25in</td>
-              <td>10in</td>
-            </tr>
-            <tr>
-              <td>25in</td>
-              <td>10in</td>
-            </tr>
+            {waterInfo.map(water => (
+              <tr>
+                <td key="batasan">{water.laboSensor_level}</td>
+                <td key="labo">{water.batasanSensor_level}</td>
+                <td>{water.createdAt}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
