@@ -27,6 +27,7 @@ class CurrentRainLevel extends Component {
           flexGrow: "2"
         }}
       >
+        <h4>Rain Level</h4>
         <div className="input-field selected">
           <select onChange={this._handleSelectChange} value={value}>
             <option value="" disabled>
@@ -44,26 +45,26 @@ class CurrentRainLevel extends Component {
         <table className="striped" id="current">
           <thead>
             <tr>
-              <th>Rain Level</th>
-              <th>Indicator</th>
+              <th>Sapang Labo Sensor</th>
+              <th>Batasan Bridge Sensor</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>It's Rising</td>
-              <td>I dont know how</td>
+              <td>30 in</td>
+              <td>10 in</td>
             </tr>
             <tr>
-              <td>It is also rising</td>
-              <td>How ????????</td>
+              <td>30 in</td>
+              <td>10 in</td>
             </tr>
             <tr>
-              <td>It is also rising</td>
-              <td>How ????????</td>
+              <td>30 in</td>
+              <td>10 in</td>
             </tr>
             <tr>
-              <td>It is also rising</td>
-              <td>How ????????</td>
+              <td>30 in</td>
+              <td>10 in</td>
             </tr>
           </tbody>
         </table>

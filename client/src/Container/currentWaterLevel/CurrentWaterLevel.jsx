@@ -1,27 +1,44 @@
 import React, { Component } from "react";
+import apiAddress from "../../util/apiPath";
 
 class CurrentWaterLevel extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { value: "current" };
+    this.state = { value: "current", waterInfo: [] };
 
     this._handleSelectChange = this._handleSelectChange.bind(this);
+    this.apiFetch = this.apiFetch.bind(this);
   }
 
   _handleSelectChange(e) {
     this.setState({ value: e.target.value });
     console.log(e.target.value);
   }
-
+  _handleOnSelect(e) {}
+  apiFetch = () => {
+    fetch(`${apiAddress}/water/getall`)
+      .then(res => {
+        if (res.ok) return res.json();
+      })
+      .then(data => {
+        this.setState({ waterInfo: data });
+        //console.log(this.state.waterInfo);
+      });
+  };
+  componentDidMount() {
+    this.apiFetch();
+  }
   render() {
-    const { value } = this.state;
+    const { value, waterInfo } = this.state;
+    console.log(waterInfo);
 
     return (
       <div
         className="col s12 m6 l4"
         style={{ paddingLeft: "10px", flexGrow: "2" }}
       >
+        <h4>Water Level</h4>
         <div className="input-field selected">
           <select value={value} onChange={this._handleSelectChange}>
             <option value="" disabled>
@@ -34,25 +51,29 @@ class CurrentWaterLevel extends Component {
             <option value="pastAll">Past All</option>
           </select>
         </div>
-        <table className="striped waterTable">
+        <table className="striped currentWaterTable">
           <thead>
             <tr>
-              <th>Water Level</th>
-              <th>Indicator</th>
+              <th>Sapang Labo Sensor</th>
+              <th>Batasan Bridge Sensor</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>It is also rising</td> <td>How ????????</td>
+              <td>30in</td>
+              <td>30in</td>
             </tr>
             <tr>
-              <td>It is also rising</td> <td>How ????????</td>
+              <td>25 in</td>
+              <td>10in</td>
             </tr>
             <tr>
-              <td>It is also rising</td> <td>How ????????</td>
+              <td>25in</td>
+              <td>10in</td>
             </tr>
             <tr>
-              <td>It is also rising</td> <td>How ????????</td>
+              <td>25in</td>
+              <td>10in</td>
             </tr>
           </tbody>
         </table>

@@ -5,15 +5,17 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+const waterRouter = require("./routes/route.water");
+const rainRouter = require("./routes/route.rain");
 
 var app = express();
 
 //connecting to mongodb
 mongoose.connect(
-  "mongodb+srv://Mashi:mashi@cluster0-7bqyb.gcp.mongodb.net/test?retryWrites=true&w=majority",
+  "mongodb+srv://Mashi:mashi@cluster0-7bqyb.gcp.mongodb.net/floodMap?retryWrites=true&w=majority",
   { useNewUrlParser: true }
 );
 var db = mongoose.connection;
@@ -21,14 +23,12 @@ db.on("error", console.error.bind(console, "connection error"));
 db.once("open", function() {
   console.log("we're connected");
 });
-mongoose.connect(
-  "mongodb+srv://Mashi:mashi@cluster0-7bqyb.gcp.mongodb.net/test?retryWrites=true&w=majority",
-  { useNewUrlParser: true }
-);
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "jade");
+app.set("view engine", "hbs");
 
+app.use(cors());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -36,7 +36,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/water", waterRouter);
+app.use("/rain", rainRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

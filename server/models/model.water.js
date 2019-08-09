@@ -1,6 +1,6 @@
-import { Mongoose } from "mongoose";
+const mongoose = require("mongoose");
+const floodMapSchema = require("../db/schema");
 
-const waterModel = Mongoose.model("water", {
-  waterLevel: integer,
-  createdAt: { type: Date, default: Date.now }
-});
+let waterModel = mongoose.model("waterModel", floodMapSchema, "Water");
+
+module.exports = waterModel;
